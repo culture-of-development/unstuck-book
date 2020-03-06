@@ -13,6 +13,7 @@ git config --global user.name "Nick Larsen"
 git clone -b gh-pages https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git book-output
 cd book-output
 git rm -rf *
+mkdir draft
 cp -r ../_book/* ./draft
 git add --all *
 git commit -m "Update the book"
