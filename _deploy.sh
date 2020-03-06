@@ -14,6 +14,7 @@ git clone -b gh-pages https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git b
 cd book-output
 git rm -rf *
 mkdir draft
+cp ../email-signup.html ./index.html
 cp -r ../_book/* ./draft
 git add --all *
 git commit -m "Update the book"
