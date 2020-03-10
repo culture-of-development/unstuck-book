@@ -8,9 +8,11 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 description: "A framework for helping you figure out what to try next when things get tough."
+url: "https://cultureofdevelopment.com/unstuck-book/draft"
+github-repo: "culture-of-development/unstuck-book"
 ---
 
-# Motivation {.unnumbered}
+# Motivation {-}
 
 Hello and welcome!  First off, a story.  
 

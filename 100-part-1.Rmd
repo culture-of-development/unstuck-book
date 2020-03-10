@@ -1,4 +1,4 @@
-# Part 1: The Framework {#part1 .unnumbered}
+# Part 1: The Framework {#part1 -}
 
 ---
 
