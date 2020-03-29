@@ -1,0 +1,7 @@
+# Solving Problems {#solving-problems}
+
+## problem solving
+
+## writing code
+
+## debugging

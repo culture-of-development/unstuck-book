@@ -1,42 +1,55 @@
-\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[]{book}
+\documentclass[
+]{book}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
   \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage[]{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\usepackage{hyperref}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-            pdftitle={UNSTUCK},
-            pdfauthor={Nick Larsen},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
+  pdftitle={UNSTUCK},
+  pdfauthor={Nick Larsen},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage{longtable,booktabs}
-% Fix footnotes in tables (requires footnote package)
-\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -46,32 +59,21 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-% set default figure placement to htbp
+% Set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
 \usepackage{booktabs}
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
 \title{UNSTUCK}
 \author{Nick Larsen}
-\date{2020-03-09}
+\date{2020-03-29}
 
 \begin{document}
 \maketitle
@@ -110,7 +112,7 @@ But isn't the same true for a human if they were to fall out of an airplane? Som
 
 I expressed concern that what we were learning wasn't really useful and he told me that this equation was indeed correct. He told me about a video from NASA where the astronaut David Scoot performed a similar experiment, \href{https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_15_feather_drop.html}{dropping a hammer and a feather at the same time on the moon}, and how they landed at the same time. I couldn't believe it, nor could I find the video in the school library (before the internet, y'all), but my dad told me later that evening he remembered seeing something like that on TV when he was a kid. He was certain he had seen it, and he was happily ready to confirm that the equation was correct.
 
-I decided to flip ahead a few chapters and see how drag works, and whoaaaa\ldots{}.
+I decided to flip ahead a few chapters and see how drag works, and whoaaaa\ldots.
 
 \[drag = coefficient * \frac{density * V^2}{2} * reference\;area\]
 
@@ -126,11 +128,80 @@ In simple terms, \textbf{I was stuck}.
 
 Wherein we breakdown what it is to build software and why it's helpful to do so.
 
-\hypertarget{processes}{%
-\chapter{Processes}\label{processes}}
+\hypertarget{what-is-software-development}{%
+\chapter{What is software development?}\label{what-is-software-development}}
 
-When I blah blah blah
+This might seem like a strange place to start seeing as how you're already reading this book, but I think it's important that we're on the same page.
 
-\bibliography{book.bib,packages.bib}
+Problem solving is entirely about transforming data. As a software developer, your job is to implement transformations using a computer processor, and that's it. Your software takes some input, then generates some output. This is true from the macro level of building the products that your business sells all the way down to the micro level of executing individual processor instructions.
+
+Most of the processors we write code for can only perform a couple hundred different possible transformations. It's incredible that we have so much software in this world, solving so many problems, and there are only a few hundred unique possible steps at the smallest level. It makes me think about how there are only a few dozen symbols in the English language and yet we can convey an incredible amount of knowledge through text. It makes me think about how there are only 118 known atomic elements which make up all the things we see and interact with in our daily lives.
+
+We letters together into words, then words into sentences, sentences into paragraphs, paragraphs into chapters and chapters into books, books into libraries, and so on. Atoms combine to form compounds, compounds combine to form amino acids, amino acids combine to form protiens and protiens combine to form the abundant organic life that make this world so wonderful.
+
+Everything that is big is made up of things that are small, and software is no different, it's a lot of small data transformations that compose much larger data transformations. When we think about problems we need to solve, we don't normally think about how to combine the smallest parts to build the big thing. If we're building a library we obviously don't need to think about how to combine individual letters to make words and if we're hungry we sure as hell aren't going to be combining individual atoms to make spinach, in fact, we as a human race don't even have control over that. If all the spinach on Earth died out and all the seeds disappeared, the world would simply be without spinach from then on because we don't know how to combine individual atoms to make a spinach seed.
+
+This is actually what makes software develop sort of unique compared to a lot of other common problem solving areas; in software development, it \emph{is} the same thing all the way down, it's just transforming data.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  because of this, approaches which work at a very high level can also work at a very low level
+\item
+  things have fundamental limits
+\item
+  as you get higher, the requirements get less well defined
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  At the end of the day your software compiles to something called machine language
+
+  \begin{itemize}
+  \tightlist
+  \item
+    machine language is effectively instructions on how to transform very small segments of data at a time
+  \item
+    all we do is compose these small segments to achieve the full transformation we're after
+  \item
+    processors available today contain
+  \end{itemize}
+\end{itemize}
+
+\url{https://scienceillustrated.com.au/blog/science/ask-us-how-many-subatomic-particles-exist/}
+
+\hypertarget{solving-problems}{%
+\chapter{Solving Problems}\label{solving-problems}}
+
+\hypertarget{problem-solving}{%
+\section{problem solving}\label{problem-solving}}
+
+\hypertarget{writing-code}{%
+\section{writing code}\label{writing-code}}
+
+\hypertarget{debugging}{%
+\section{debugging}\label{debugging}}
+
+\hypertarget{the-tools}{%
+\chapter{The Tools You Need To Get Unstuck}\label{the-tools}}
+
+Now let's put this all together.
+
+\hypertarget{part2}{%
+\chapter*{Part 2: Getting Unstuck}\label{part2}}
+\addcontentsline{toc}{chapter}{Part 2: Getting Unstuck}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Wherein we look at some common ways in which we get stuck and discuss techniques for getting unstuck.
+
+We're going to start by looking at a lot of problems related to performance, then we're going to move on to lots of ways we get stuck when looking at data.
+
+  \bibliography{book.bib,packages.bib}
 
 \end{document}

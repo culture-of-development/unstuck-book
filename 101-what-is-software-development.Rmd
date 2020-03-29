@@ -1,0 +1,30 @@
+# What is software development? {#what-is-software-development}
+
+This might seem like a strange place to start seeing as how you're already reading this book, but I think it's important that we're on the same page.
+
+Problem solving is entirely about transforming data.  As a software developer, your job is to implement transformations using a computer processor, and that's it.  Your software takes some input, then generates some output.  This is true from the macro level of building the products that your business sells all the way down to the micro level of executing individual processor instructions.
+
+Most of the processors we write code for can only perform a couple hundred different possible transformations.  It's incredible that we have so much software in this world, solving so many problems, and there are only a few hundred unique possible steps at the smallest level.  It makes me think about how there are only a few dozen symbols in the English language and yet we can convey an incredible amount of knowledge through text.  It makes me think about how there are only 118 known atomic elements which make up all the things we see and interact with in our daily lives.
+
+We letters together into words, then words into sentences, sentences into paragraphs, paragraphs into chapters and chapters into books, books into libraries, and so on.  Atoms combine to form compounds, compounds combine to form amino acids, amino acids combine to form protiens and protiens combine to form the abundant organic life that make this world so wonderful.  
+
+Everything that is big is made up of things that are small, and software is no different, it's a lot of small data transformations that compose much larger data transformations.  When we think about problems we need to solve, we don't normally think about how to combine the smallest parts to build the big thing.  If we're building a library we obviously don't need to think about how to combine individual letters to make words and if we're hungry we sure as hell aren't going to be combining individual atoms to make spinach, in fact, we as a human race don't even have control over that.  If all the spinach on Earth died out and all the seeds disappeared, the world would simply be without spinach from then on because we don't know how to combine individual atoms to make a spinach seed.
+
+This is actually what makes software develop sort of unique compared to a lot of other common problem solving areas; in software development, it _is_ the same thing all the way down, it's just transforming data.
+
+---
+
+- because of this, approaches which work at a very high level can also work at a very low level
+- things have fundamental limits
+- as you get higher, the requirements get less well defined
+
+---
+
+- At the end of the day your software compiles to something called machine language
+  - machine language is effectively instructions on how to transform very small segments of data at a time
+  - all we do is compose these small segments to achieve the full transformation we're after
+  - processors available today contain
+
+
+
+https://scienceillustrated.com.au/blog/science/ask-us-how-many-subatomic-particles-exist/

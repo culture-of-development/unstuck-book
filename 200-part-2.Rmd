@@ -1,0 +1,7 @@
+# Part 2: Getting Unstuck {#part2 -}
+
+---
+
+Wherein we look at some common ways in which we get stuck and discuss techniques for getting unstuck.
+
+We're going to start by looking at a lot of problems related to performance, then we're going to move on to lots of ways we get stuck when looking at data.
